@@ -1,9 +1,9 @@
-name: mir-jeans-db_dev
+name: marcel-clothes-db_dev
 
 services:
   db:
     image: postgres:17-alpine
-    container_name: "mir-jeans-db_dev_postgres"
+    container_name: "marcel-clothes-db_dev_postgres"
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
@@ -15,7 +15,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./postgres_data_dev:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}" ]
       interval: 5s
       timeout: 5s
       retries: 10
